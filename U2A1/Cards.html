@@ -19,26 +19,40 @@
   .blue{
     background-color: #0d6efd;
   }
+  .blue-light{
+    background-color: rgb(4, 194, 247);
+  }
   .black{
     background-color: #000000;
   }
-  .redes{
-    width: 350px;
-    height: 200px;
+  .font-white{
+    color:white;
   }
+  .red{
+    background-color: red;
+  }
+  .orange{
+    background-color: orange;
+  }
+  .redes{
+    height: 140px;
+    width: 220px;
+   
+  }
+  
 </style>
 <body>
-  <h1>Bootstrap 4 Cards</h1>
-  <h5>Thanks to the new spacing utility classes there's a lot you can do</h5>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card" style="max-width: 450px; height: 200px;">
+  <h1 style="margin-left: 20px;">Bootstrap 4 Cards</h1>
+  <h5 style="margin-left: 20px;">Thanks to the new spacing utility classes there's a lot you can do</h5>
+  <div class="container-fluid">
+    <div class="row mb-0"> <!-- Aplicamos mb-0 aquí para eliminar el margen inferior -->
+      <div class="col-sm-6">
+        <div class="card" style="max-width: 540px;">
           <div class="card-header" >
             <div class="row">
-              <div class="col-2 green"><i class="bi bi-tree-fill bi-3x"></i></div>
-              <div class="col-2 blue"><i class="bi bi-record-circle bi-3x"></i></div>
-              <div class="col-8 bg-danger"><i class="bi bi-eyedropper bi-3x"></i></div>
+              <div class="col-2 green"><i class="bi bi-tree-fill"style="font-size: 2rem;"></i></div>
+              <div class="col-2 red"><i class="bi bi-record-circle"style="font-size: 2rem;"></i></div>
+              <div class="col-8 blue"><i class="bi bi-eyedropper"style="font-size: 2rem;"></i></div>
             </div>
           </div>          
           <div class="card-body">
@@ -48,95 +62,87 @@
           </div>
         </div>  
       </div>
-      
-      <div class="col-md-8">
-        <div class="row row-cols-md-2 g-6">
-          <div class="col-md-6 redes">
-            <div class="card black">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+      <div class="col-sm-6">
+        <div class="row mb-">
+          <div class="col-md-6 mx-4">
+            <div class="row row-cols-md-2 g-6">
+              <div class="col-md-6">
+                <div class="card black redes">
+                  <div class="card-body">
+                    <h5 class="card-title">&nbsp;</h5>
+                    <i class="bi bi-facebook font-white"style="font-size: 2rem;"></i>
+                    <p class="card-text font-white"><b>56 Likes</b></p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 redes">
-            <div class="card black">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="col-md-6">
+                <div class="card blue redes">
+                  <div class="card-body">
+                    <h5 class="card-title">&nbsp;</h5>
+                    <i class="bi bi-twitter font-white"style="font-size: 2rem;"></i>
+                    <p class="card-text font-white"><b>209 Followers</b></p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="row row-cols-md-2 g-6">
-          <div class="col-md-6 redes">
-            <div class="card black">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="col-md-6">
+                <div class="card green redes">
+                  <div class="card-body">
+                    <h5 class="card-title">&nbsp;</h5>
+                    <i class="bi bi-tree-fill font-white"style="font-size: 2rem;"></i>
+                    <p class="card-text font-white"><b>20 Snaps</b></p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 redes">
-            <div class="card black">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="col-md-6">
+                <div class="card red redes">
+                  <div class="card-body">
+                    <h5 class="card-title">&nbsp;</h5>
+                    <i class="bi bi-youtube font-white"style="font-size: 2rem;"></i>
+                    <p class="card-text font-white"><b>1,100 Views</b></p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-    <div class="col-md-8">
-      <div class="row row-cols-md-2 g-6">
-        <div class="col-md-6 redes">
-          <div class="card black">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 redes">
-          <div class="card black">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="col-md-6">
+                <div class="card blue-light redes">
+                  <div class="card-body">
+                    <h5 class="card-title">&nbsp;</h5>
+                    <i class="bi bi-reddit font-white"style="font-size: 2rem;"></i>
+                    <p class="card-text font-white"><b>90 Views<</b>/p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card orange redes">
+                  <div class="card-body">
+                    <h5 class="card-title">&nbsp;</h5>
+                    <i class="bi bi-browser-chrome font-white"style="font-size: 2rem;"></i>
+                    <p class="card-text font-white"><b>44 Apps</b></p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-
+      </div>
+      <div class="col-12" style="position:absolute; top:340px">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-6 green"><i class="bi bi-tree-fill" style="font-size: 5rem; position:absolute"></i></div>
+            <div class="col-md-6">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content</p>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-secondary" type="button">Button</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-    </div>
-
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-6 green"><i class="bi bi-tree-fill"></i></div>
-        <div class="col-md-6">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <div class="d-grid gap-2">
-              <button class="btn btn-outline-secondary" type="button">Button</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
+   
 </body>
 </html>
