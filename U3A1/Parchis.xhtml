@@ -13,15 +13,15 @@
 </head>
 <style>
     .esquinas{
-        height: 170px;
-        border: 3px solid black;
+        height: 150px;
+        border: 2px solid black;
     }
     .red{
         background-color: red;
     }
     .blue{
         color:blue;
-        background-color: blue;
+        background-color: rgb(0, 136, 255);
     }
     .white{
         
@@ -34,7 +34,7 @@
         background-color: yellow;
     }
     .casillas{
-        height: 48.5px;
+        height: 43px;
         border: 1.5px solid black;}
     .numero_al_reves{
         transform: rotate(180deg);
@@ -45,13 +45,11 @@
         
     }
     
-    .horizontal1{
-        transform: rotate(90deg);
-    }
+        
     .circle {
     width: 40px;
     height: 40px;
-    background-color: #eb747a;
+    background-color: #ebdd74;
     border-radius: 50%;
     border: 1px solid black;
     position:absolute;
@@ -77,46 +75,50 @@
                 <div class="row">
                     <div class="col-6 red esquinas"></div>
                     <div class="col-6 red esquinas"></div>
+                </div>
+                <div class="row">
                     <div class="col-6 red esquinas"></div>
                     <div class="col-6 red esquinas"></div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-4" style="max-height: 150px;">
                 <div class="row">
                     <div class="col-4 white casillas"><p class="numero_al_reves"><b>35</b></p></div>
                     <div class="col-4 white casillas"><div class="circle"></div><p class="numero_al_reves"><b>34</b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>33</b></p></div>
+                    <div class="col-4 white casillas text-end"><p class="numero_al_reves"><b>33</b></p></div>
                     <div class="col-4 white casillas"><p class="numero_al_reves"><b>36</b></p></div>
                     <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>32</b></p></div>
+                    <div class="col-4 white casillas text-end"><p class="numero_al_reves"><b>32</b></p></div>
                     <div class="col-4 white casillas"><p class="numero_al_reves"><b>37</b></p></div>
                     <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>31</b></p></div>
+                    <div class="col-4 white casillas text-end"><p class="numero_al_reves"><b>31</b></p></div>
                     <div class="col-4 white casillas"><p class="numero_al_reves"><b>38</b></p></div>
                     <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>30</b></p></div>
+                    <div class="col-4 white casillas text-end"><p class="numero_al_reves"><b>30</b></p></div>
                     <div class="col-4 red casillas"><div class="circle"></div><p class="numero_al_reves"><b>39</b></p></div>
                     <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><div class="circle" ></div><p class="numero_al_reves"><b>29</b></p></div>
+                    <div class="col-4 white casillas text-end"><div class="circle" ></div><p class="numero_al_reves"><b>29</b></p></div>
                     <div class="col-4 white casillas"><p class="numero_al_reves"><b>40</b></p></div>
                     <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>28</b></p></div>
+                    <div class="col-4 white casillas text-end"><p class="numero_al_reves"><b>28</b></p></div>
                     <div class="col-4 white casillas"><p class="numero_al_reves"><b>41</b></p></div>
                     <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>27</b></p></div>
+                    <div class="col-4 white casillas text-end"><p class="numero_al_reves"><b>27</b></p></div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="row">
                     <div class="col-6 blue esquinas"></div>
                     <div class="col-6 blue esquinas"></div>
+                </div>
+                <div class="row">
                     <div class="col-6 blue esquinas"></div>
                     <div class="col-6 blue esquinas"></div>
                 </div>
             </div>
-            <div class="col-4 horizontal1">
-                <div class="row">
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>35</b></p></div>
+            <div class="col-4" style="transform: rotate(90deg)">
+                <div class="row d-flex">
+                    <div class="col-4 white casillas">44</div>
                     <div class="col-4 white casillas"><p class="numero_al_reves"><b>34</b></p></div>
                     <div class="col-4 white casillas"><p class="numero_al_reves"><b>33</b></p></div>
                     <div class="col-4 white casillas"><p class="numero_al_reves"><b>36</b></p></div>
@@ -141,27 +143,7 @@
             </div>
             <div class="col-4">
                 <div class="row">
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>35</b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>34</b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>33</b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>36</b></p></div>
-                    <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>32</b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>37</b></p></div>
-                    <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>31</b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>38</b></p></div>
-                    <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>30</b></p></div>
-                    <div class="col-4 red casillas"><p class="numero_al_reves"><b>39</b></p></div>
-                    <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>29</b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>40</b></p></div>
-                    <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>28</b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>41</b></p></div>
-                    <div class="col-4 red casillas"><p class="numero_al_reves"><b></b></p></div>
-                    <div class="col-4 white casillas"><p class="numero_al_reves"><b>27</b></p></div>
+                    <img src="centro.png" style="height:300px;width: 1000px;"/>
                 </div>
             </div>
             <div class="col-4">
