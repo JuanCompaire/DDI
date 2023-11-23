@@ -1,0 +1,1 @@
+insert into LIBROS(titulo,autor) values ('El señor de los anillos','J.R.R. Tolkien');
