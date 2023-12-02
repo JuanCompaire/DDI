@@ -6,26 +6,20 @@ import lombok.Getter;
 @Data
 @Getter
 public class Mascota {
-
     private Integer id;
-    private String nombre;
 
     private Integer num_chip;
 
-    private Boolean vacunado;
+    private String nombre;
 
+    private  Boolean vacunado;
 
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
-    }
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public Integer getNum_chip() {
@@ -34,6 +28,14 @@ public class Mascota {
 
     public void setNum_chip(Integer num_chip) {
         this.num_chip = num_chip;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Boolean getVacunado() {

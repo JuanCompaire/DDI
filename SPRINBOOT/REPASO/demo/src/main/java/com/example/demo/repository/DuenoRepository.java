@@ -16,12 +16,12 @@ public class DuenoRepository {
     JdbcTemplate jdbcTemplate;
 
     public void insert(Dueno dueno){
-        jdbcTemplate.update("insert into dueno(nombre) values(?);", dueno.getNombre());
+        jdbcTemplate.update("insert into dueno(nombre, dni) values(?,?);", dueno.getNombre(), dueno.getDni());
 
     }
 
     public void update(Dueno dueno){
-        jdbcTemplate.update("UPDATE dueno SET nombre = ? WHERE id=?", dueno.getNombre(),dueno.getId());
+        jdbcTemplate.update("UPDATE dueno SET nombre = ?, dni = ? WHERE id=?", dueno.getNombre(),dueno.getDni(),dueno.getId());
     }
 
     public void delete(Integer id){

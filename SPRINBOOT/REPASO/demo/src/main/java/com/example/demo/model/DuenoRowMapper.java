@@ -12,6 +12,7 @@ public class DuenoRowMapper implements RowMapper<Dueno> {
 		Dueno dueno = new Dueno();
 		dueno.setId(rs.getInt("id"));
 		dueno.setNombre(rs.getString("nombre"));
+		dueno.setDni(rs.getString("dni"));
 		return dueno;
 	}
 

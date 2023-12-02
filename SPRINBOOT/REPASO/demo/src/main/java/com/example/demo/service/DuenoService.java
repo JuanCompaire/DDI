@@ -14,7 +14,7 @@ public class DuenoService {
     DuenoRepository duenoRepo;
 
     public List<Dueno> insertDueno(Dueno dueno){
-        System.out.println("name:" + dueno.getNombre());
+        System.out.println("name:" + dueno.getNombre() + " dni:" + dueno.getDni());
         if(dueno.getId() == null){
             duenoRepo.insert(dueno);
         }else{
@@ -24,7 +24,7 @@ public class DuenoService {
         //creamos una lista de dueños que gracias al DuenoRowMapper nos dara la estructura
         List<Dueno> lista = duenoRepo.findAll();
         for(Dueno dun : lista){
-            System.out.println(dun.getNombre());
+            System.out.println(dun.getNombre()+","+dun.getDni());
         }
         return lista;
     }
@@ -32,7 +32,7 @@ public class DuenoService {
     public Dueno updateDuenoList(Integer id){
         Dueno dun = duenoRepo.findById(id);
 
-        System.out.print(dun.getNombre());
+        System.out.print(dun.getNombre()+","+dun.getDni());
         return dun;
     }
 
@@ -49,7 +49,7 @@ public class DuenoService {
         List<Dueno> lista = duenoRepo.searchByNombreOrApellido(userInput);
 
         for(Dueno dun : lista){
-            System.out.println(dun.getNombre());
+            System.out.println(dun.getNombre()+","+dun.getDni());
 
         }
         return lista;
