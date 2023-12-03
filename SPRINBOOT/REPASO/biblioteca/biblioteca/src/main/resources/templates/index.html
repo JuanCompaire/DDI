@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+</head>
+<body>
+    <div style="display: table; margin:auto; margin-top:200px; border: solid 1px black; width: 50%;">
+        <form th:action="@{/searchLibro}">
+            <span>Buscar por Isbn:</span>
+            <input type="text" th:name="search"/>
+        </form>
+        <br>
+        <br>
+        <!-- esto se enviara a localhost:8081/insertStudent -->
+        <span>Insertar o Actualizar libro:</span>
+        <br>
+        <form th:action="@{/insertLibro}" th:object="${libro}">
+            <input type="number" th:field="*{id}" hidden/>
+            <span>Isbn:</span>
+            <input type="text" th:field="*{isbn}"/>
+            <span>Fecha:</span>
+            <input type="text" th:field="*{fechaEdicion}"/>
+            <span>almacen_old:</span>
+            <input type="text" th:field="*{almacen_old}"/>
+            <span>almacen_new:</span>
+            <input type="text" th:field="*{almacen_new}"/>
+            <input type="submit" value="Enviar datos"/>
+        </form>
+    </div>
+</body>
+</html>
+```
