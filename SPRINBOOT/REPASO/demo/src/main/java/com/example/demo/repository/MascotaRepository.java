@@ -23,8 +23,23 @@ public class MascotaRepository {
         return jdbcTemplate.query("SELECT ALL * FROM mascota", new MascotaRowMapper());
     }
 
-    public List<Mascota> searchBynombre(String userInput){
+    public List<Mascota> searchByNombreOrApellido(String userInput){
         return jdbcTemplate.query("SELECT * FROM mascota where nombre = ?",new MascotaRowMapper(),
                 userInput);
     }
+
+    public void update(Mascota mascota){
+        jdbcTemplate.update("UPDATE mascota SET nombre = ?, num_chip = ?, vacunado = ? WHERE id = ?",
+                mascota.getNombre(), mascota.getNum_chip(), mascota.getVacunado(), mascota.getId());
+    }
+
+    public void delete(Integer id){
+        jdbcTemplate.update("DELETE FROM mascota WHERE id=?", new Object[] { id });
+    }
+
+    public Mascota findById(long id){
+        return jdbcTemplate.queryForObject("select * from mascota where id=?",
+                new MascotaRowMapper(), new Object[] { id });
+    }
+
 }

@@ -24,5 +24,29 @@
 			<input type="submit" value="Enviar datos"/>
 		</form>
 	</div>
+	<br/>
+	<br/>
+
+	<div style="display: table; margin:auto; margin-top:200px; border: solid 1px black; width: 50%;">
+		<form th:action="@{/searchMascota}">
+			<span>Buscar por Nombre :</span>
+			<input type="text" th:name="search"/>
+		</form>
+		<br>
+		<br>
+		<!-- esto se enviara a localhost:8081/insertStudent -->
+		<span>Insertar o Actualizar mascota:</span>
+		<br>
+		<form th:action="@{/insertMascota}" th:object="${mascota}">
+			<input type="number" th:field="*{id}" hidden/>
+			<span>Nombre:</span>
+			<input type="text" th:field="*{nombre}"/>
+			<span>Num_chip:</span>
+			<input type="number" th:field="*{num_chip}"/>
+			<span>Vacunado:</span>
+			<input type="checkbox" th:field="*{vacunado}"/>
+			<input type="submit" value="Enviar datos"/>
+		</form>
+	</div>
 </body>
 </html>

@@ -8,7 +8,7 @@ create table dueno(
 create table mascota(
     id int NOT NULL AUTO_INCREMENT,
     nombre varchar(100) not null,
-    num_chip int NOT NULL,
+    num_chip int ,
     vacunado BOOLEAN,
     PRIMARY KEY(id)
 )
