@@ -1,30 +1,27 @@
 package com.example.biblioteca.model;
 
-
 import lombok.Data;
 import lombok.Getter;
 
 import java.util.Date;
 
-
-@Getter
 @Data
+@Getter
 public class Libro {
 
-    private int id;
+    private Integer id;
     private String isbn;
 
-    private Date fechaEdicion;
-
+    private Integer ano;
     private int almacen_old;
 
     private int almacen_new;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -36,12 +33,13 @@ public class Libro {
         this.isbn = isbn;
     }
 
-    public Date getFechaEdicion() {
-        return fechaEdicion;
+
+    public Integer getAno() {
+        return ano;
     }
 
-    public void setFechaEdicion(Date fechaEdicion) {
-        this.fechaEdicion = fechaEdicion;
+    public void setAno(Integer ano) {
+        this.ano = ano;
     }
 
     public int getAlmacen_old() {

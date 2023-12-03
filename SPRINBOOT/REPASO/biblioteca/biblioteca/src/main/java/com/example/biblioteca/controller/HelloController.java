@@ -11,7 +11,6 @@ public class HelloController {
     @RequestMapping("/")
     public String index(Model model){
         model.addAttribute("libro",new Libro());
-
         return "index";
     }
 }

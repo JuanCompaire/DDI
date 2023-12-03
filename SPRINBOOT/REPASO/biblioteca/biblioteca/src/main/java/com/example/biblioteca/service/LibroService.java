@@ -13,16 +13,16 @@ public class LibroService {
     @Autowired
     LibroRepository libroRepository;
 
-    public List<Libro> insertarLibro(Libro libro) {
-        System.out.println("isbn: " + libro.getIsbn() + " fechaEdicion: " + libro.getFechaEdicion() + " almacen_old: " + libro.getAlmacen_old() + " almacen_new: " + libro.getAlmacen_new());
-        if(libro.getId() == 0) {
+    public List<Libro> insertLibro(Libro libro){
+        System.out.println("isbn: " + libro.getIsbn()+ " fechaEdicion: " + libro.getAno() + " almacen_old: " + libro.getAlmacen_old() + " almacen_new: " + libro.getAlmacen_new());
+        if(libro.getId() == null){
             libroRepository.insert(libro);
-        } else {
+        }else{
             libroRepository.update(libro);
         }
         List<Libro> lista = libroRepository.findAll();
-        for( Libro l : lista) {
-            System.out.println("id: " + l.getId() + " isbn: " + l.getIsbn() + " fechaEdicion: " + l.getFechaEdicion() + " almacen_old: " + l.getAlmacen_old() + " almacen_new: " + l.getAlmacen_new());
+        for(Libro l : lista){
+            System.out.println("id: " + l.getId() + " isbn: " + l.getIsbn()+ " fechaEdicion: " + l.getAno() + " almacen_old: " + l.getAlmacen_old() + " almacen_new: " + l.getAlmacen_new());
         }
         return lista;
     }
@@ -30,29 +30,27 @@ public class LibroService {
     public Libro updateLibroList(Integer id){
         Libro lib = libroRepository.findById(id);
 
-        System.out.print(lib.getIsbn()+","+lib.getFechaEdicion()+", "+lib.getAlmacen_old()+", "+lib.getAlmacen_new());
+        System.out.print(lib.getIsbn()+", "+lib.getAno()+", "+lib.getAlmacen_old()+", "+lib.getAlmacen_new());
         return lib;
     }
 
     public List<Libro> deleteLibro(Integer id){
         libroRepository.delete(id);
-        List<Libro> lista = libroRepository.findAll();
 
-        return lista;
+        List<Libro> lista = libroRepository.findAll();
+        return  lista;
+
     }
 
     public List<Libro> searchLibro(String userInput){
-        List<Libro> lista = libroRepository.findByIsbn(userInput);
-
-        for( Libro l : lista) {
-            System.out.println("id: " + l.getId() + " isbn: " + l.getIsbn() + " fechaEdicion: " + l.getFechaEdicion() + " almacen_old: " + l.getAlmacen_old() + " almacen_new: " + l.getAlmacen_new());
+        List<Libro> lista = libroRepository.searchByIsbn(userInput);
+        for(Libro l : lista){
+            System.out.println("id: " + l.getId() + " isbn: " + l.getIsbn()+ " fechaEdicion: " + l.getAno() + " almacen_old: " + l.getAlmacen_old() + " almacen_new: " + l.getAlmacen_new());
         }
         return lista;
     }
 
-    public Libro searchLibroById(long id){
-        Libro lib = libroRepository.findById(id);
-
-        return lib;
+    public Libro searchById(long id) {
+        return libroRepository.findById(id);
     }
 }
