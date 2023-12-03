@@ -2,11 +2,13 @@ package com.example.biblioteca.model;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Data
 @Getter
+@Setter
 public class Libro {
 
     private Integer id;
@@ -57,4 +59,7 @@ public class Libro {
     public void setAlmacen_new(int almacen_new) {
         this.almacen_new = almacen_new;
     }
+
+
+
 }

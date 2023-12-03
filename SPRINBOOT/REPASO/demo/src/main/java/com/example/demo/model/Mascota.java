@@ -14,6 +14,23 @@ public class Mascota {
 
     private  Boolean vacunado;
 
+    private Dueno dueno;
+
+    public Dueno getDueno() {
+        return dueno;
+    }
+
+    public void setDueno(Dueno dueno) {
+        this.dueno = dueno;
+    }
+
+    public Mascota(int num_chip, String nombre, Boolean vacunado, Dueno dnidueno) {
+        this.num_chip = num_chip;
+        this.nombre = nombre;
+        this.vacunado = vacunado;
+        this.dueno = dnidueno;
+    }
+
     public Integer getId() {
         return id;
     }
