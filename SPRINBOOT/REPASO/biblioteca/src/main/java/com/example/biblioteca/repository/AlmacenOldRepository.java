@@ -1,6 +1,9 @@
 package com.example.biblioteca.repository;
 
-import com.example.biblioteca.model.*;
+import com.example.biblioteca.model.AlmacenNew;
+import com.example.biblioteca.model.AlmacenOld;
+import com.example.biblioteca.model.AlmacenOldRowMapper;
+import com.example.biblioteca.model.Libro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -44,12 +47,5 @@ public class AlmacenOldRepository {
                 new AlmacenOldRowMapper(),userInput);
     }
 
-    public List<AlmacenOld> getAlmacenOldByLibro(Libro libro){
-        List<AlmacenOld> almacenOldList = jdbcTemplate.query(
-                "SELECT a.id, a.nombre, l.id, l.isbn,l.ano FROM ALMACEN_OLD a, LIBRO l WHERE a.id = l.almacen_old AND l.id = ?",
-                new AlmacenOldRowMapper(), libro.getId());
-        return almacenOldList;
-
-    }
 
 }

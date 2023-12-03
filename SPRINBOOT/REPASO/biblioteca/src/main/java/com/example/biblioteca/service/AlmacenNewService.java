@@ -55,4 +55,10 @@ public class AlmacenNewService {
     public AlmacenNew searchById(long id) {
         return almacenNewRepository.findById(id);
     }
+
+    public List<AlmacenNew> listarTodosAlmacenNew() {
+        List<AlmacenNew> lista = almacenNewRepository.findAll();
+        return lista;
+    }
+
 }

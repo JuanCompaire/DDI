@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thyneleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<a href="/formAlmacen">Formulario creación almacen</a>
+
+<h2>Almacenes Nuevos</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+    </tr>
+    <tr th:each="almacenNew: ${almacenesNuevos}">
+        <td th:text="${almacenNew.id}"/>
+        <td th:text="${almacenNew.nombre}"/>
+    </tr>
+</table>
+
+<h2>Almacenes Viejos</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+    </tr>
+    <tr th:each="almacenOld: ${almacenesViejos}">
+        <td th:text="${almacenOld.id}"/>
+        <td th:text="${almacenOld.nombre}"/>
+    </tr>
+</table>
+
+</body>
+</html>

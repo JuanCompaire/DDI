@@ -8,7 +8,6 @@ import java.sql.SQLException;
 
 public class AlmacenNewRowMapper implements RowMapper<AlmacenNew> {
     @Override
-
     public AlmacenNew mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         AlmacenNew almacenNew = new AlmacenNew();

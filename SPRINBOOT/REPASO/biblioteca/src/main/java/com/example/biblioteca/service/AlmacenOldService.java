@@ -56,4 +56,9 @@ public class AlmacenOldService {
         return almacenOldRepository.findById(id);
     }
 
+    public List<AlmacenOld> listarTodosAlmacenOld() {
+        List<AlmacenOld> lista = almacenOldRepository.findAll();
+        return lista;
+    }
+
 }

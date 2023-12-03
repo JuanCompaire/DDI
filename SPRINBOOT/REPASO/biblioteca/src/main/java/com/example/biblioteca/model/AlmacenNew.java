@@ -10,24 +10,7 @@ import lombok.Setter;
 public class AlmacenNew {
     private Integer id;
     private String nombre;
-
     private Libro libro;
-
-    public Libro getLibro() {
-        return libro;
-    }
-
-    public AlmacenNew(String nombre, Libro libro) {
-        this.nombre = nombre;
-        this.libro = libro;
-    }
-
-    public AlmacenNew() {
-    }
-
-    public void setLibro(Libro libro) {
-        this.libro = libro;
-    }
 
     public Integer getId() {
         return id;
@@ -45,4 +28,11 @@ public class AlmacenNew {
         this.nombre = nombre;
     }
 
+    public Libro getLibro() {
+        return libro;
+    }
+
+    public void setLibro(Libro libro) {
+        this.libro = libro;
+    }
 }
