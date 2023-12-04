@@ -47,5 +47,9 @@ public class AlmacenOldRepository {
                 new AlmacenOldRowMapper(),userInput);
     }
 
+    public void deleteByIdAndNombre(Integer id, String nombre) {
+        jdbcTemplate.update("DELETE FROM ALMACEN_OLD WHERE id = ? AND nombre = ?", id, nombre);
+    }
+
 
 }

@@ -2,9 +2,16 @@
 <html xmlns:th="http://www.thyneleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Insert title here</title>
+  <title>Listado de libros</title>
 </head>
 <body>
+
+<form th:action="@{/searchLibro}" method="post">
+  <h3>Buscar libro por ISBN</h3>
+  <input type="text" name="search"/>
+  <input type="submit" value="Buscar"/>
+</form>
+
 <table border="1px" style="display: table; margin:auto; margin-top:200px; width: 50%;border-collapse: collapse;">
   <th>ID</th>
   <th>ISBN</th>

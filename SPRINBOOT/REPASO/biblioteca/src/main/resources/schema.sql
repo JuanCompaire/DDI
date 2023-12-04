@@ -14,6 +14,6 @@ create table IF NOT EXISTS LIBRO(
     ano INT,
     almacen_old INT,
     almacen_new INT,
-    FOREIGN KEY (almacen_old) REFERENCES ALMACEN_OLD(id),
-    FOREIGN KEY (almacen_new) REFERENCES ALMACEN_NEW(id)
+    FOREIGN KEY (almacen_old) REFERENCES ALMACEN_OLD(id) ON DELETE CASCADE,
+    FOREIGN KEY (almacen_new) REFERENCES ALMACEN_NEW(id) ON DELETE CASCADE
 );

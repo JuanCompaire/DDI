@@ -2,6 +2,7 @@ package com.example.biblioteca.service;
 
 import com.example.biblioteca.model.AlmacenOld;
 import com.example.biblioteca.repository.AlmacenOldRepository;
+import com.example.biblioteca.repository.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,9 @@ public class AlmacenOldService {
 
     @Autowired
     AlmacenOldRepository almacenOldRepository;
+
+    @Autowired
+    LibroRepository libroRepository;
 
     public List<AlmacenOld> insertAlmacenOld(AlmacenOld almacenOld) {
         System.out.println("id: " + almacenOld.getId() + " nombre: " + almacenOld.getNombre());
@@ -36,14 +40,6 @@ public class AlmacenOldService {
         return almacenOld;
     }
 
-    public List<AlmacenOld> deleteAlmacenOld(Integer id) {
-        almacenOldRepository.delete(id);
-
-        List<AlmacenOld> lista = almacenOldRepository.findAll();
-        return lista;
-
-    }
-
     public List<AlmacenOld> searchAlmacenOld(String userInput) {
         List<AlmacenOld> lista = almacenOldRepository.searchByNombre(userInput);
         for (AlmacenOld a : lista) {
@@ -57,6 +53,16 @@ public class AlmacenOldService {
     }
 
     public List<AlmacenOld> listarTodosAlmacenOld() {
+        List<AlmacenOld> lista = almacenOldRepository.findAll();
+        for (AlmacenOld almacenOld : lista) {
+            almacenOld.setLibros(libroRepository.findLibrosByAlmacenId(almacenOld.getId()));
+        }
+        return lista;
+    }
+
+    public List<AlmacenOld> deleteAlmacenOld(Integer id, String nombre) {
+        almacenOldRepository.deleteByIdAndNombre(id, nombre);
+
         List<AlmacenOld> lista = almacenOldRepository.findAll();
         return lista;
     }

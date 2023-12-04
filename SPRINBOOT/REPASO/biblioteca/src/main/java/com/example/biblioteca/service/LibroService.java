@@ -53,4 +53,9 @@ public class LibroService {
     public Libro searchById(long id) {
         return libroRepository.findById(id);
     }
+
+    public List<Libro> listarTodosLibro(){
+        List<Libro> lista = libroRepository.findAll();
+        return lista;
+    }
 }

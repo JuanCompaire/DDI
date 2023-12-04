@@ -1,6 +1,8 @@
 package com.example.biblioteca.controller;
 
 import com.example.biblioteca.model.Libro;
+import com.example.biblioteca.service.AlmacenNewService;
+import com.example.biblioteca.service.AlmacenOldService;
 import com.example.biblioteca.service.LibroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,20 @@ public class LibroController {
 
     @Autowired
     LibroService service;
+
+    @Autowired
+    AlmacenNewService almacenNewService;
+
+    @Autowired
+    AlmacenOldService almacenOldService;
+
+    @RequestMapping("/formLibro")
+    public String formLibro(Model model){
+        model.addAttribute("libro", new Libro());
+        model.addAttribute("almacenesNuevos", almacenNewService.listarTodosAlmacenNew());
+        model.addAttribute("almacenesViejos", almacenOldService.listarTodosAlmacenOld());
+        return "formLibro";
+    }
 
     @RequestMapping("/insertLibro")
     public String insertarLibro(@ModelAttribute("libro") Libro libro, BindingResult result, Model model){
@@ -47,7 +63,6 @@ public class LibroController {
     @RequestMapping("/searchLibro")
     public String buscarLibro(@RequestParam("search") String userInput, Model model){
         List<Libro> lista = service.searchLibro(userInput);
-
         model.addAttribute("libros", lista);
         return "finlibro";
     }

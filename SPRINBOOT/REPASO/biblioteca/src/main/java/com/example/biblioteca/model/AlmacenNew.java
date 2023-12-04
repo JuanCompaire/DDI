@@ -4,13 +4,15 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Data
 @Getter
 @Setter
 public class AlmacenNew {
     private Integer id;
     private String nombre;
-    private Libro libro;
+    private List<Libro> libros;
 
     public Integer getId() {
         return id;
@@ -28,11 +30,11 @@ public class AlmacenNew {
         this.nombre = nombre;
     }
 
-    public Libro getLibro() {
-        return libro;
+    public List<Libro> getLibros() {
+        return libros;
     }
 
-    public void setLibro(Libro libro) {
-        this.libro = libro;
+    public void setLibros(List<Libro> libros) {
+        this.libros = libros;
     }
 }

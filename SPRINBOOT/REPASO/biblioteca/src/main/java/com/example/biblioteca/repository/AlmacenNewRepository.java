@@ -47,12 +47,9 @@ public class AlmacenNewRepository {
                 new AlmacenNewRowMapper(),userInput);
     }
 
-    public List<AlmacenNew> getAlmacenNewByLibro(Libro libro){
-        List<AlmacenNew> almacenNewList = jdbcTemplate.query(
-                "SELECT a.id, a.nombre, l.id, l.isbn,l.ano FROM ALMACEN_NEW a, LIBRO l WHERE a.id = l.almacen_new AND l.id = ?",
-                new AlmacenNewRowMapper(), libro.getId());
-        return almacenNewList;
-
+    public void deleteByIdAndNombre(Integer id, String nombre) {
+        jdbcTemplate.update("DELETE FROM ALMACEN_NEW WHERE id = ? AND nombre = ?", id, nombre);
     }
+
 
 }

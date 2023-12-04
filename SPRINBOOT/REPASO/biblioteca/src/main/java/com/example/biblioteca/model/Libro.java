@@ -15,9 +15,9 @@ public class Libro {
     private String isbn;
 
     private Integer ano;
-    private int almacen_old;
+    private Integer almacen_old;
 
-    private int almacen_new;
+    private Integer almacen_new;
 
     public Integer getId() {
         return id;
@@ -44,22 +44,19 @@ public class Libro {
         this.ano = ano;
     }
 
-    public int getAlmacen_old() {
+    public Integer getAlmacen_old() {
         return almacen_old;
     }
 
-    public void setAlmacen_old(int almacen_old) {
+    public void setAlmacen_old(Integer almacen_old) {
         this.almacen_old = almacen_old;
     }
 
-    public int getAlmacen_new() {
+    public Integer getAlmacen_new() {
         return almacen_new;
     }
 
-    public void setAlmacen_new(int almacen_new) {
+    public void setAlmacen_new(Integer almacen_new) {
         this.almacen_new = almacen_new;
     }
-
-
-
 }

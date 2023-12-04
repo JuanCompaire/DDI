@@ -43,4 +43,10 @@ public class LibroRepository {
         return jdbcTemplate.query("SELECT * FROM LIBRO WHERE isbn LIKE ?",
                 new LibroRowMapper(),userInput);
     }
+
+    public List<Libro> findLibrosByAlmacenId(Integer almacenId) {
+        String query = "SELECT * FROM LIBRO WHERE almacen_old = ? OR almacen_new = ?";
+        return jdbcTemplate.query(query, new LibroRowMapper(), almacenId, almacenId);
+    }
+
 }
