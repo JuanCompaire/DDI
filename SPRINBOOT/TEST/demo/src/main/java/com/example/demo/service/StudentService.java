@@ -8,27 +8,27 @@ import org.springframework.stereotype.Service;
 import com.example.demo.model.Student;
 import com.example.demo.repository.StudentRepository;
 
+
 @Service // component, repository esas tres anotaciones hacen que solo se cree un objeto
-			// de esta clase y se vaya usando conforme hace falta
+// de esta clase y se vaya usando conforme hace falta
 public class StudentService {
 
 	@Autowired
+	private
 	StudentRepository studentRepo;
 
 	public List<Student> insertStudent(Student student) {
 		System.out.println("name:" + student.getNombre());
 		if (student.getId() == null) {
-			// studentRepo.insert(student);
-			studentRepo.save(student);
+			studentRepo.insert(student);
 		} else {
 			// si existe un update
-			// studentRepo.update(student);
-			studentRepo.save(student);
+			studentRepo.update(student);
 		}
 
 		// creamos una lista de estudiantes que gracias al StudentRowMapper nos dará la
 		// estructura
-		List<Student> lista = (List<Student>) studentRepo.findAll();
+		List<Student> lista = studentRepo.findAll();
 		for (Student stud : lista) {
 			System.out.println(stud.getNombre() + stud.getApellido());
 		}
@@ -36,41 +36,44 @@ public class StudentService {
 	}
 
 
+
 	public Student updateStudentList(Integer id) {
-		Student stud = studentRepo.findById(id).get();
+		Student stud = studentRepo.findById(id);
 
 		System.out.println(stud.getNombre() + " " + stud.getApellido());
 		return stud;
 	}
 
 	public List<Student> deleteStudent(Integer id) {
-		// studentRepo.delete(id);
-		studentRepo.deleteById(id);
+		studentRepo.delete(id);
 
-		List<Student> lista = (List<Student>) studentRepo.findAll();
+		List<Student> lista = studentRepo.findAll();
 		return lista;
 	}
 
 
-
-
 	public List<Student> searchStudent(String userInput) {
-		List<Student> lista = //studentRepo.searchByNombreOrApellido(userInput);
-				studentRepo.findByNombreOrApellido(userInput, userInput);
+		List<Student> lista = studentRepo.searchByNombreOrApellido(userInput);
 		for (Student stud : lista) {
 			System.out.println(stud.getNombre() + stud.getApellido());
 		}
 		return lista;
 	}
 
-
-	public Student searchStudentById(Integer id) {
-		// return studentRepo.findById(id);
-		return studentRepo.findById(id).get();
+	public Student searchStudentById(long id) {
+		return studentRepo.findById(id);
 	}
 
-	public List<Student> findAll() {
-		return (List<Student>) studentRepo.findAll();
+
+	public StudentRepository getStudentRepo() {
+		return studentRepo;
 	}
+
+
+
+	public void setStudentRepo(StudentRepository studentRepo) {
+		this.studentRepo = studentRepo;
+	}
+
 
 }

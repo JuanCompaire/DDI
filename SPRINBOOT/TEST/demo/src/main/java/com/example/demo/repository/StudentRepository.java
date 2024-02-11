@@ -1,26 +1,24 @@
 package com.example.demo.repository;
-
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Student;
+import com.example.demo.model.StudentRowMapper;
 
 @Repository
-public interface StudentRepository extends CrudRepository<Student, Integer> {
-
-	public List<Student> findByNombreOrApellido(String nombre, String apellido);
-
-}
-
-/*public class StudentRepository {
+public class StudentRepository {
 
 	@Autowired
+	private
 	JdbcTemplate jdbcTemplate;
 
 	public void insert(Student student) {
-		jdbcTemplate.update("insert into students(id, nombre, apellido) values(?, ?, ?);", student.getId(),student.getNombre(),
+		jdbcTemplate.update("insert into students(id, nombre, apellido) values(?, ?, ?);", student.getId(),
+				student.getNombre(),
 				student.getApellido());
 	}
 
@@ -45,6 +43,7 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 	public List<Student> searchByNombreOrApellido(String userInput) {
 		return jdbcTemplate.query("SELECT * FROM STUDENTS WHERE nombre = ? OR apellido = ?", new StudentRowMapper(),
 				userInput, userInput);
+
 	}
 
 	public JdbcTemplate getJdbcTemplate() {
@@ -54,4 +53,4 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-}*/
+}

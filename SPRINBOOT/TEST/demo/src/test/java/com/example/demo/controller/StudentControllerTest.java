@@ -55,45 +55,105 @@ public class StudentControllerTest {
 
 
     @Test
-    void testActualizarEstudiante(){
-
+    void testActualizarEstudiante() {
+        // Arrange
         Model model = new ExtendedModelMap();
-        Student student = createMockedStudent();
-        when(service.updateStudentList(student.getId())).thenReturn(createMockedStudent());
+        int studentId = 1;
+        Student updatedStudent = new Student(studentId, "UpdatedName", "UpdatedLastName");
+        when(service.updateStudentList(studentId)).thenReturn(updatedStudent);
 
-        String Finpage = controller.actualizarEstudiante(student.getId(), model);
-        assertEquals("index", Finpage);
+        // Act
+        String redirection = controller.actualizarEstudiante(studentId, model);
 
+        // Assert
+        assertEquals("index", redirection);
+        assertNotNull(model);
         assertNotNull(model.getAttribute("student"));
-        assertInstanceOf(Student.class, model.getAttribute("student"));
+        assertTrue(model.getAttribute("student") instanceof Student);
 
-        Student stud = (Student) model.getAttribute("student");
-        assertNotNull(stud);
-        System.out.println(model.getAttribute("student"));
-
-    }
-
-    private static Student createMockedStudent() {
-        Student student = new Student();
-        student.setId(1);
-        student.setNombre("Ignacio");
-        student.setApellido("Maradona");
-        return student;
-
+        Student retrievedStudent = (Student) model.getAttribute("student");
+        assertEquals(updatedStudent.getId(), retrievedStudent.getId());
+        assertEquals(updatedStudent.getNombre(), retrievedStudent.getNombre());
+        assertEquals(updatedStudent.getApellido(), retrievedStudent.getApellido());
     }
 
 
     @Test
     void testBorrarEstudiante(){
         Model model = new ExtendedModelMap();
+        List<Student> listaBorrarStudent = createMockedStudentList();
+        System.out.println(listaBorrarStudent);
+
+        when(service.deleteStudent(2)).thenReturn(removeStudentFromList(listaBorrarStudent, 2));
+        System.out.println(listaBorrarStudent.size());
+
+        String finPage = controller.borrarEstudiante(2, model);
+        assertEquals("fin", finPage);
+
+        assertNotNull("estudiantes");
+        assertInstanceOf(List.class, model.getAttribute("estudiantes"));
+
+        List<Student> lista = (List<Student>) model.getAttribute("estudiantes");
+        assertFalse(lista.isEmpty());
+        assertEquals(1, lista.size());
+        System.out.println(model.getAttribute("estudiantes"));
+    }
+
+    private static List<Student> createMockedStudentList() {
         List<Student> listaStudentList = new ArrayList<>();
         listaStudentList.add(new Student(1,"JUan","Putero"));
         listaStudentList.add(new Student(2,"Isabel","Pantoja"));
-        
-        String finPage = controller.borrarEstudiante(studtest.getId(), model);
-        assertEquals("fin", finPage);
+        return listaStudentList;
     }
 
+    private List<Student> removeStudentFromList(List<Student> studentList, int id) {
+        for (Student student : studentList) {
+            if (student.getId() == id) {
+                studentList.remove(student);
+                break;
+            }
+        }
+        return studentList;
+    }
+
+    @Test
+    void testBuscarEstudiantes(){
+        Model model = new ExtendedModelMap();
+        List<Student> listaPreBusqueda = studentSearchList();
+        when(service.searchStudent("Juan")).thenReturn(searchStudent(listaPreBusqueda));
+
+        String finPage = controller.buscarEstudiantes("Juan", model);
+        assertEquals("fin", finPage);
+
+        assertNotNull(model.getAttribute("estudiantes"));
+        assertInstanceOf(List.class, model.getAttribute("estudiantes"));
+
+        List <Student> lista = (List<Student>) model.getAttribute("estudiantes");
+        assertNotNull(lista);
+        assertFalse(lista.isEmpty());
+        assertEquals(1, lista.size());
+        System.out.println(model.getAttribute("estudiantes"));
+
+    }
+
+    private List<Student> searchStudent(List<Student> lista){
+        List<Student> listaBuscarStudent = new ArrayList<>();
+        for (Student student : lista) {
+            if (student.getNombre().equals("Juan")) {
+                listaBuscarStudent.add(student);
+            }
+
+        }
+        return listaBuscarStudent;
+
+    }
+
+    private static List<Student> studentSearchList() {
+        List<Student> listaBuscarStudent = new ArrayList<>();
+        listaBuscarStudent.add(new Student(1,"Juan","Perez"));
+        listaBuscarStudent.add(new Student(2,"Isabel","Pantoja"));
+        return listaBuscarStudent;
+    }
 
     @BeforeAll
     static void setUpBeforeClass() throws Exception {
